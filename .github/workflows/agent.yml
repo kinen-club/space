@@ -1,0 +1,70 @@
+name: Kinen Agent
+
+on:
+  issues:
+    types: [opened]
+  issue_comment:
+    types: [created]
+
+jobs:
+  session:
+    runs-on: ubuntu-latest
+    # Only run if the comment is from a user (not the bot itself)
+    if: github.event.comment == null || github.event.comment.user.login != 'github-actions[bot]'
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Create/Checkout Session Branch
+        run: |
+          BRANCH="session/issue-${{ github.event.issue.number }}"
+          git fetch origin || true
+          git checkout "$BRANCH" 2>/dev/null || git checkout -b "$BRANCH"
+          git push -u origin "$BRANCH" || true
+      
+      - name: Run Aider
+        uses: mirrajabi/aider-github-action@v1
+        with:
+          aider-args: |
+            --message "${{ github.event.issue.body || github.event.comment.body }}"
+            --yes
+          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
+      
+      - name: Commit Changes
+        run: |
+          git config user.name "Kinen Bot"
+          git config user.email "bot@kinen.club"
+          git add .
+          git commit -m "Session update: Issue #${{ github.event.issue.number }}" || echo "No changes to commit"
+          git push
+      
+      - name: Notify User
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issueNumber = context.issue.number;
+            const branchName = `session/issue-${issueNumber}`;
+            const compareUrl = `${context.payload.repository.html_url}/compare/main...${branchName}`;
+            
+            // Comment on issue
+            await github.rest.issues.createComment({
+              issue_number: issueNumber,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `Session updated! [View changes](${compareUrl})`
+            });
+            
+            // Call bridge to send email
+            await fetch('https://bridge.kinen.club/notify', {
+              method: 'POST',
+              headers: {'Content-Type': 'application/json'},
+              body: JSON.stringify({
+                username: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                message: `Session updated. View changes: ${compareUrl}`
+              })
+            });
