@@ -1,0 +1,14 @@
+name: Kinen Agent
+
+on:
+  repository_dispatch:
+    types: [email_session_start, email_session_continue]
+
+jobs:
+  session:
+    uses: kinen-club/workflows/.github/workflows/agent.yml@main
+    secrets:
+      # Add whichever API key you have (at least one required)
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}

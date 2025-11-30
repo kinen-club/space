@@ -1,0 +1,37 @@
+# Kinen Session Configuration
+
+# LLM Provider Settings
+# Supported: openai, gemini, anthropic
+llm:
+  # Default provider (can be overridden via secrets)
+  default_provider: anthropic
+
+  # Model preferences per provider
+  models:
+    gemini: gemini-3.0-pro
+    openai: gpt-4o
+    anthropic: claude-4.5-sonnet
+
+# Session Settings
+session:
+  # Auto-create session branch
+  auto_branch: true
+
+  # Branch naming pattern
+  branch_pattern: "session/issue-{issue_number}"
+
+  # Commit author
+  commit_author: "Kinen Bot"
+  commit_email: "bot@kinen.club"
+
+# Aider Settings
+aider:
+  # Read files to include in context
+  # Base methodology is auto-fetched from https://kinen.club/methodology.md
+  # Custom instructions should be in .kinen/custom-instructions.md
+  read_files: []
+
+  # Additional aider flags
+  flags:
+    - --yes
+    - --no-auto-commits

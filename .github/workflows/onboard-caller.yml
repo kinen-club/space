@@ -1,0 +1,10 @@
+name: Kinen Onboarding
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  onboard:
+    uses: kinen-club/workflows/.github/workflows/onboard.yml@main
+    secrets: inherit
