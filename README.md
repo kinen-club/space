@@ -8,13 +8,14 @@ Your workspace for AI-powered thinking sessions.
 
 ## 🚀 Get Started
 
-<a href="https://github.com/apps/kinen-club" target="_blank">
+<a href="https://github.com/apps/kinen-club">
   <img src="https://img.shields.io/badge/Install_Kinen_App-black?style=for-the-badge&logo=github" alt="Install Kinen App" />
 </a>
 
 <br><br>
 
-*Click above to connect this repo to Kinen*
+*Click the button above to connect this repo to Kinen*<br>
+<sub>(Tip: ⌘+click or Ctrl+click to open in new tab)</sub>
 
 </div>
 
