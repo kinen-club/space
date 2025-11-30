@@ -25,12 +25,9 @@ jobs:
         github.event.comment.user.type != 'Bot'
       )
     uses: kinen-club/workflows/.github/workflows/agent.yml@main
-    with:
-      # Google OAuth Client ID (for free Gemini access)
-      # This is Kinen Club's public OAuth app - not a secret
-      google_client_id: "116369305764-c9ke327pk2ttdml2m78cns0fmrupfu7m.apps.googleusercontent.com"
     secrets:
-      # Google OAuth (FREE - 1000 requests/day, set automatically by Kinen)
+      # Google OAuth (FREE - 1000 requests/day)
+      # Auto-saved to your repo by Kinen when you click "Continue with Google"
       GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
       # OpenRouter (access to all models)
       OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
