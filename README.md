@@ -4,30 +4,35 @@ Your workspace for AI-powered thinking sessions.
 
 ---
 
-## 🚀 Step 1: Enable Kinen
+<div align="center">
 
-**[Click here to install the Kinen App →](https://github.com/apps/kinen-club)**
+## 🚀 Get Started
 
-This connects your repo to Kinen and sets up your email inbox.
+<a href="https://github.com/apps/kinen-club" target="_blank">
+  <img src="https://img.shields.io/badge/Install_Kinen_App-black?style=for-the-badge&logo=github" alt="Install Kinen App" />
+</a>
 
----
+<br><br>
 
-## 🔑 Step 2: Add API Key
+*Click above to connect this repo to Kinen*
 
-Add **one** API key to your repo secrets (Settings → Secrets → Actions):
-
-| Provider | Secret Name | Get Key |
-|----------|-------------|---------|
-| **OpenRouter** (recommended) | `OPENROUTER_API_KEY` | [Free tier available](https://openrouter.ai/keys) |
-| Gemini | `GEMINI_API_KEY` | [Free tier](https://aistudio.google.com/apikey) |
-| OpenAI | `OPENAI_API_KEY` | [Paid](https://platform.openai.com/api-keys) |
-| Anthropic | `ANTHROPIC_API_KEY` | [Paid](https://console.anthropic.com/) |
+</div>
 
 ---
 
-## 📧 Step 3: Start a Session
+## What happens next?
 
-After setup, email your inbox to start:
+1. **Install the app** → You'll be redirected to connect your email
+2. **Connect Google** (free) or add an API key → Powers the AI
+3. **Your first session starts automatically** → Check the Issues tab!
+
+The AI will ask what you want to explore. Just reply to start your journey.
+
+---
+
+## 📧 How to Start New Sessions
+
+Email your inbox anytime:
 
 ```
 To: my-project@YOUR-USERNAME.kinen.space

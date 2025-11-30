@@ -3,6 +3,10 @@ name: Kinen Agent
 on:
   repository_dispatch:
     types: [email_session_start, email_session_continue]
+  
+  # Also trigger on issue comments (for GitHub UI replies)
+  issue_comment:
+    types: [created]
 
 permissions:
   contents: write
@@ -10,6 +14,16 @@ permissions:
 
 jobs:
   session:
+    # Only run if:
+    # - repository_dispatch (email), OR
+    # - issue_comment on kinen-session issue, not from a bot
+    if: |
+      github.event_name == 'repository_dispatch' ||
+      (
+        github.event_name == 'issue_comment' &&
+        contains(github.event.issue.labels.*.name, 'kinen-session') &&
+        github.event.comment.user.type != 'Bot'
+      )
     uses: kinen-club/workflows/.github/workflows/agent.yml@main
     with:
       # Google OAuth Client ID (for free Gemini access)
