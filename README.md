@@ -2,34 +2,48 @@
 
 Your workspace for AI-powered thinking sessions.
 
-## Quick Start
+---
 
-1. Add an API key to repo secrets (see below)
-2. Email your inbox to start a session
-3. Reply to continue the conversation
+## 🚀 Step 1: Enable Kinen
 
-## Setup
+**[Click here to install the Kinen App →](https://github.com/apps/kinen-club)**
+
+This connects your repo to Kinen and sets up your email inbox.
+
+---
+
+## 🔑 Step 2: Add API Key
 
 Add **one** API key to your repo secrets (Settings → Secrets → Actions):
 
-| Provider | Secret Name | Free? |
-|----------|-------------|-------|
-| **Gemini** | `GEMINI_API_KEY` | ✅ [Get free key](https://aistudio.google.com/apikey) |
-| OpenAI | `OPENAI_API_KEY` | Paid |
-| Anthropic | `ANTHROPIC_API_KEY` | Paid |
+| Provider | Secret Name | Get Key |
+|----------|-------------|---------|
+| **OpenRouter** (recommended) | `OPENROUTER_API_KEY` | [Free tier available](https://openrouter.ai/keys) |
+| Gemini | `GEMINI_API_KEY` | [Free tier](https://aistudio.google.com/apikey) |
+| OpenAI | `OPENAI_API_KEY` | [Paid](https://platform.openai.com/api-keys) |
+| Anthropic | `ANTHROPIC_API_KEY` | [Paid](https://console.anthropic.com/) |
+
+---
+
+## 📧 Step 3: Start a Session
+
+After setup, email your inbox to start:
+
+```
+To: my-project@YOUR-USERNAME.kinen.space
+Subject: Build a todo app with React
+```
+
+You'll receive AI responses via email. Reply to continue the conversation!
+
+---
 
 ## How It Works
 
 ```
-You email your inbox
-    ↓
-AI creates a session (GitHub issue)
-    ↓
-AI asks questions, generates code
-    ↓
-You get email with results
-    ↓
-Reply to continue
+You send email → AI creates GitHub issue → AI asks questions
+       ↑                                          ↓
+  Reply to continue ← You get email ← AI generates code
 ```
 
 ## File Structure
