@@ -8,7 +8,9 @@ jobs:
   session:
     uses: kinen-club/workflows/.github/workflows/agent.yml@main
     secrets:
-      # Add whichever API key you have (at least one required)
+      # OpenRouter (recommended - single key for all models)
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      # Or use direct provider keys:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}

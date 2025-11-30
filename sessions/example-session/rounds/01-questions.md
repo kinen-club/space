@@ -23,4 +23,3 @@ How long should users stay logged in?
 ## Summary
 
 Gathering requirements to recommend the right auth approach.
-

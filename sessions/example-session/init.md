@@ -12,4 +12,3 @@ Started: 2024-11-30
 
 Building a new web application that needs user authentication.
 Want something simple but secure.
-
