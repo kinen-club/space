@@ -4,6 +4,10 @@ on:
   push:
     branches: [main]
 
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   onboard:
     uses: kinen-club/workflows/.github/workflows/onboard.yml@main

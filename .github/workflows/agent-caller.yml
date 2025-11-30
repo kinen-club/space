@@ -4,6 +4,10 @@ on:
   repository_dispatch:
     types: [email_session_start, email_session_continue]
 
+permissions:
+  contents: write
+  issues: write
+
 jobs:
   session:
     uses: kinen-club/workflows/.github/workflows/agent.yml@main
